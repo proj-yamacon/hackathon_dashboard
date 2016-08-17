@@ -1,0 +1,10 @@
+<label>Smacame Version</label>
+<select class="form-control" v-model="smacameVersion">
+  <option v-for="version in availableSmacameVersions">{{ version }}</option>
+</select>
+
+<label>Smacame ID</label>
+<input v-model="smacameId" type="text" id="smacame_id" class="form-control" value="" maxlength="15" minlength="7">
+
+<label>Private IP</label>
+<input v-model="privateIp" type="text" id="private_ip" class="form-control" value="" maxlength="15" minlength="7">

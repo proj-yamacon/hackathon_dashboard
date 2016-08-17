@@ -1,0 +1,24 @@
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>CameraSetting ID</th>
+      <th>タイプ</th>
+      <th>作成日</th>
+      <th>DAPClientID</th>
+      <th>DAPDataID</th>
+      <th>Metadata</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="setting in settings">
+      <th>{{ setting.id }}</th>
+      <th>{{ setting.camera_type }}</th>
+      <td>{{ setting.created_at }}</td>
+      <td>{{ setting.dap_client_id }}</td>
+      <td>{{ setting.dap_data_id }}</td>
+      <td v-for="value in setting.metadata">
+        <span class="label label-default">{{ $key }}</span><div>{{ value }}</div><br>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,12 +1,21 @@
 <template>
-  <div id="app" class="contaier">
+  <div class="contaier">
+    <p>
+      <a v-on:click="goTop">Go to Top</a>
+    </p>
   </div>
 </template>
 
 <script>
-
 export default {
   components: {
+  },
+
+  methods: {
+    goTop () {
+      console.log('goTop')
+      this.$route.router.go('/top')
+    }
   }
 }
 </script>
@@ -14,10 +23,5 @@ export default {
 <style>
 html {
   height: 100%;
-}
-
-.logo {
-  width: 100px;
-  height: 100px
 }
 </style>
