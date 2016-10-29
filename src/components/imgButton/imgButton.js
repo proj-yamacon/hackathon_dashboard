@@ -9,8 +9,8 @@ export default Vue.extend({
     'person'
   ],
   computed: {
-    in_zone () {
-      this.in_people_ids.indexOf(this.person.id)
+    inZone () {
+      return (this.in_people_ids.indexOf(this.person.id) !== -1)
     },
     ...mapState({
       in_people_ids: state => state.in_people.map(person => person.id)
@@ -19,10 +19,17 @@ export default Vue.extend({
   methods: {
     onClick (event) {
       console.log(this.person.id)
-      this.$store.dispatch('ENTER_PERSON_IN_ZONE', {
-        zoneId: this.$route.params.id,
-        personId: this.person.id
-      })
+      if (!this.inZone) {
+        this.$store.dispatch('ENTER_PERSON_IN_ZONE', {
+          zoneId: this.$route.params.id,
+          personId: this.person.id
+        })
+      } else {
+        this.$store.dispatch('EXIT_PERSON_IN_ZONE', {
+          zoneId: this.$route.params.id,
+          personId: this.person.id
+        })
+      }
     }
   }
 })

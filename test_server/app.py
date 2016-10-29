@@ -57,7 +57,19 @@ def people():
                 "image": '/static/logo.png'
             },
             {
-                "id": 1,
+                "id": 2,
+                "image": '/static/logo.png'
+            }
+        ]
+    })
+
+@app.route("/zones/<int:id1>/people/<int:id2>", methods=['PUT'])
+@crossdomain(origin='*')
+def zone_people(id1, id2):
+    return jsonify({
+        "people": [
+            {
+                "id": id2,
                 "image": '/static/logo.png'
             }
         ]
