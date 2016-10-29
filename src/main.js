@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
+import Store from './store'
+
 import Top from './components/top/top.js'
 import ZoneAdmin from './components/zoneAdmin/zoneAdmin.js'
 import Dashboard from './components/dashboard/dashboard.js'
@@ -9,7 +11,9 @@ import Dashboard from './components/dashboard/dashboard.js'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
-var App = Vue.extend({})
+var App = Vue.extend({
+  store: Store
+})
 
 var router = new VueRouter()
 
