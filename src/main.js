@@ -3,16 +3,11 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
 import Top from './components/top/top.js'
-import CameraSettings from './components/camera_settings/camera_settings.js'
-import CameraSettingRegistration from './components/camera_setting_registration/camera_setting_registration.js'
+import ZoneAdmin from './components/zoneAdmin/zoneAdmin.js'
+import Dashboard from './components/dashboard/dashboard.js'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
-
-Vue.http.headers.common['Accept'] = 'application/json'
-Vue.http.headers.common['Content-Type'] = 'application/json'
-Vue.http.headers.common['Access-Control-Allow-Origin'] = '192.168.111.163:3002'
-Vue.http.headers.common['Authorization'] = 'Bearer XXX'
 
 var App = Vue.extend({})
 
@@ -23,13 +18,13 @@ router.map({
     component: Top,
     name: 'top'
   },
-  '/camera_settings': {
-    component: CameraSettings,
-    name: 'camera_settings'
+  '/admin/zone/:id': {
+    component: ZoneAdmin,
+    name: 'adminZone'
   },
-  '/camera_setting_registration': {
-    component: CameraSettingRegistration,
-    name: 'camera_setting_registration'
+  '/dashboard': {
+    component: Dashboard,
+    name: 'dashboard'
   }
 })
 
