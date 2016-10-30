@@ -58,6 +58,7 @@ export default {
       Vue.http.get(API_HOST + '/zones/' + zoneId)
       .then((response) => {
         commit(mutationTypes.UPDATE_ZONE, response.data)
+        commit(mutationTypes.UPDATE_PERSON_IN_ZONE, response.data.people)
         resolve(response.data)
       },
       (response) => {
