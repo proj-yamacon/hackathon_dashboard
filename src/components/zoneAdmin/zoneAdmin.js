@@ -11,7 +11,8 @@ export default Vue.extend({
     this.$store.dispatch(FETCH_ZONE_INFORMATION, {zoneId: this.$route.params.id})
   },
   computed: mapState({
-    people_list: state => state.people_list
+    people_list: state => state.people_list,
+    zone: state => state.zone
   }),
   components: {
     imgButton
