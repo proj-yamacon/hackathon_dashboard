@@ -11,12 +11,13 @@ export default Vue.extend({
   },
 
   ready () {
+    const zoneId = this.$route.params.id
     this.$store.dispatch(FETCH_ZONE_INFORMATION, {
-      zoneId: 1
+      zoneId
     })
     this.invertalId = setInterval(() => {
       this.$store.dispatch(FETCH_ZONE_INFORMATION, {
-        zoneId: 1
+        zoneId
       })
     }, 3000)
   },

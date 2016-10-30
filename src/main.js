@@ -28,7 +28,7 @@ router.map({
     component: ZoneAdmin,
     name: 'adminZone'
   },
-  '/dashboard': {
+  '/dashboard/:id': {
     component: Dashboard,
     name: 'dashboard'
   }
