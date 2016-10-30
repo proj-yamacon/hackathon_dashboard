@@ -1,11 +1,22 @@
 <div class="container">
   <div>
     <h1>Dashboard</h1>
-    <person-panel :person='person' v-for="person in zone.people">
-    </person-panel>
-  </div>
-  <div class="alert alert-info" role="alert">
-    <p>目標温度:{{zone.target_temperature}}</p>
-    <p>現状温度:{{zone.current_temperature}}</p>
+    <div class="row">
+      <div class="col-sm-8 col-md-8">
+        <div class="row">
+          <person-panel :person='person' v-for="person in zone.people"></person-panel>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <p>目標温度:</p>
+          <h1 style="color:green;">{{zone.target_temperature}}</h1>
+        </div>
+        <div class="thumbnail">
+          <p>現状温度:</p>
+          <h1 style="color:blue;">{{zone.current_temperature}}</h1>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
