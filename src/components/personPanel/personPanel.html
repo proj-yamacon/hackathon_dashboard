@@ -1,7 +1,23 @@
-<div>
+<div style="display:block;text-align:center;">
   <img :src="person.image_name" alt="" class='col-md-4'>
-  <span class="col-md-8">
-    <p class='name'>名前:{{person.name}}</p>
-    <p class='comfortable'>最適温度:{{person.comfortable_temperature}}度</p>
-  </span>
+</div>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>名前</th>
+        <td>{{person.name}}</td>
+      </tr>
+      <tr>
+        <th>最適温度</th>
+        <td>{{person.comfortable_temperature}}度</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
