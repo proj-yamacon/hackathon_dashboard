@@ -8,7 +8,7 @@ export default {
     return new Promise((resolve, reject) => {
       Vue.http.get(API_HOST + '/people', { })
         .then((response) => {
-          commit(mutationTypes.SET_PEOPLE_LIST, response.data.people)
+          commit(mutationTypes.SET_PEOPLE_LIST, response.data)
           resolve(response.data)
         },
         (response) => {
@@ -18,62 +18,51 @@ export default {
   },
 
   [types.ENTER_PERSON_IN_ZONE] ({ commit }, payload) {
-    // const zoneId = payload.zoneId
+    const zoneId = payload.zoneId
     const personId = payload.personId
-    /*
     return new Promise((resolve, reject) => {
-      Vue.http.put(API_HOST + '/zone/' + zoneId + '/people/' + personId, {
+      Vue.http.put(API_HOST + '/people/' + personId + '/enter', {
+        zone_id: zoneId
       })
       .then((response) => {
-        commit(mutationTypes.ENTER_PERSON_IN_ZONE, response.people)
+        commit(mutationTypes.UPDATE_PERSON_IN_ZONE, response.data.people)
         resolve(response.data)
       },
       (response) => {
         reject()
       })
-    })
-    */
-    return new Promise((resolve, reject) => {
-      const response = {
-        data: {
-          people: [
-            {
-              id: personId,
-              image: 'test'
-            }
-          ]
-        }
-      }
-      commit(mutationTypes.UPDATE_PERSON_IN_ZONE, response.data.people)
-      resolve(response)
     })
   },
 
   [types.EXIT_PERSON_IN_ZONE] ({ commit }, payload) {
-    // const zoneId = payload.zoneId
-    // const personId = payload.personId
-    /*
+    const zoneId = payload.zoneId
+    const personId = payload.personId
     return new Promise((resolve, reject) => {
-      Vue.http.put(API_HOST + '/zone/' + zoneId + '/people/' + personId, {
+      Vue.http.put(API_HOST + '/people/' + personId + '/exit', {
+        zone_id: zoneId
       })
       .then((response) => {
-        commit(mutationTypes.ENTER_PERSON_IN_ZONE, response.people)
+        commit(mutationTypes.UPDATE_PERSON_IN_ZONE, response.data.people)
         resolve(response.data)
       },
       (response) => {
         reject()
       })
     })
-    */
+  },
+
+  [types.FETCH_ZONE_INFORMATION] ({ commit }, payload) {
+    const zoneId = payload.zoneId
+
     return new Promise((resolve, reject) => {
-      const response = {
-        data: {
-          people: [
-          ]
-        }
-      }
-      commit(mutationTypes.UPDATE_PERSON_IN_ZONE, response.data.people)
-      resolve(response)
+      Vue.http.get(API_HOST + '/zones/' + zoneId)
+      .then((response) => {
+        commit(mutationTypes.UPDATE_ZONE, response.data)
+        resolve(response.data)
+      },
+      (response) => {
+        reject()
+      })
     })
   }
 

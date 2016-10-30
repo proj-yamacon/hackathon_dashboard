@@ -11,6 +11,8 @@ import Dashboard from './components/dashboard/dashboard.js'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
+Vue.http.headers.common['Accept'] = 'application/json'
+
 var App = Vue.extend({
   store: Store
 })

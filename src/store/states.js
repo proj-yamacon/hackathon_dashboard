@@ -1,4 +1,5 @@
 export default {
   in_people: [],
-  people_list: []
+  people_list: [],
+  zone: {}
 }

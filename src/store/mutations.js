@@ -6,5 +6,8 @@ export default {
   },
   [types.UPDATE_PERSON_IN_ZONE] (state, people) {
     state.in_people = people
+  },
+  [types.UPDATE_ZONE] (state, zone) {
+    state.zone = zone
   }
 }

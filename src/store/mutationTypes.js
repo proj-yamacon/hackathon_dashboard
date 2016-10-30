@@ -1,3 +1,4 @@
 export const SET_PEOPLE_LIST = 'SET_PEOPLE_LIST'
 export const UPDATE_PERSON_IN_ZONE = 'UPDATE_PERSON_IN_ZONE'
+export const UPDATE_ZONE = 'UPDATE_ZONE'
 

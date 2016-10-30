@@ -1,4 +1,12 @@
 <div class="container">
-  <h1>Dashboard</h1>
+  <div>
+    <h1>Dashboard</h1>
+    <person-panel :person='person' v-for="person in zone.people">
+    </person-panel>
+  </div>
+  <div>
+    <label for="">{{zone.target_temperature}}</label>
+    <label for="">{{zone.current_temperature}}</label>
+  </div>
 </div>
 
